@@ -70,10 +70,8 @@ FallbackNTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.p
 
 
 # Config TODOs
-* Fix / remove displayLink, atleast at startup
 * get some transparent window sexyness
 * spotify in polybar
 * commands/shortcuts for opening a terminal to the current nvim location like shift+$mod+enter to i3
 * startup workspaces, ie. minimal, and one with chrome + spotify
 * make a script that turns bt on and connects to headphones
-* 
