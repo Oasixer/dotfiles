@@ -1,0 +1,18 @@
+# Whitelist pattern - ignore all first
+*/
+/*
+
+# Now whitelist specific subdirectories and files
+
+# .config has its own .gitignore
+!.config/
+
+# fonts - for polybar and other glyphs, I put siji in ~/.fonts
+!.fonts/
+
+!.gitignore
+!.dmrc
+!.screenrc
+!.xinitrc
+!.zshrc
+!readme.md
