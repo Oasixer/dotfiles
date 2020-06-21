@@ -1,0 +1,6 @@
+[submodule ".config/termite-style"]
+	path = .config/termite-style
+	url = git@github.com:adi1090x/termite-style.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:Oasixer/nvim.git

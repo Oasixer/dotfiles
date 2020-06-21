@@ -1,0 +1,15 @@
+unmap J
+unmap K
+unmap x
+unmap d
+unmap u
+unmap r
+
+map <a-R> reload
+map <c-u> scrollPageUp
+map <c-d> scrollPageDown
+map <a-h> previousTab
+map <a-l> nextTab
+map <a-c> removeTab
+map <a-H> moveTabLeft
+map <a-L> moveTabRight

@@ -1,0 +1,29 @@
+# Whitelist pattern - ignore all subdirectories first
+*/
+
+# Now whitelist specific subdirectories
+
+#i3
+!i3/
+
+#nvim
+!nvim/
+
+#polybar
+!polybar/
+
+#termite
+!termite/
+
+#termite-style
+!termite-style
+
+#eduroam
+!eduroam/
+
+#rofi
+!rofi/
+
+#vimium (chrome extension)
+!vimium/
+
