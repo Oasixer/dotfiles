@@ -27,3 +27,6 @@
 #vimium (chrome extension)
 !vimium/
 
+# i3 layout manager (submodule)
+!i3-layout-manager
+
