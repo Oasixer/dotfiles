@@ -36,13 +36,17 @@ sudo -E nvim file
 vim <(any_command)
 vim <(ls -a)
 
-## Grep
+## Grep, clipboard
 * from command result
     * Grep for command result from other command result
         any_command | grep `other_command` | cut -f1
 
     * Grep for string from command result
         any_command | grep "example search string" | cut -f1
+
+    * copy command result to clipboard
+
+    cat file | xclip -selection clipboard
 
 
 * Grep and only show up to N surrounding characters
