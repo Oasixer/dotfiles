@@ -36,13 +36,17 @@ sudo -E nvim file
 vim <(any_command)
 vim <(ls -a)
 
-## Grep
+## Grep, clipboard
 * from command result
     * Grep for command result from other command result
         any_command | grep `other_command` | cut -f1
 
     * Grep for string from command result
         any_command | grep "example search string" | cut -f1
+
+    * copy command result to clipboard
+
+    cat file | xclip -selection clipboard
 
 
 * Grep and only show up to N surrounding characters
@@ -94,10 +98,8 @@ xinput enable <device>
 Wacom Pen and multitouch sensor Finger touch	id=15
 
 # Config TODOs
-* Fix / remove displayLink, atleast at startup
 * get some transparent window sexyness
 * spotify in polybar
 * commands/shortcuts for opening a terminal to the current nvim location like shift+$mod+enter to i3
 * startup workspaces, ie. minimal, and one with chrome + spotify
 * make a script that turns bt on and connects to headphones
-* 
