@@ -68,6 +68,30 @@ FallbackNTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.p
         * systemctl enable systemd-timesyncd.service
         * systemctl start systemd-timesyncd.service
 
+## Enable and disable devices ie. trackpad, touchscreen
+
+* List devices
+
+xinput list
+
+* Get info about a device
+
+xinput list-props <device>
+
+* Disable / enable device
+
+xinput disable <device>
+
+xinput enable <device>
+
+* Devices (laptop)
+    * On my specific current laptop, the trackpad is:
+
+⎜↳ Synaptics TM3075-002 id=22	[slave  pointer  (2)]
+
+    * The touch screen is
+
+Wacom Pen and multitouch sensor Finger touch	id=15
 
 # Config TODOs
 * Fix / remove displayLink, atleast at startup
