@@ -230,7 +230,7 @@ bindsym Mod3+n [title="^nvim$"] focus
 bindsym $mod+Return exec termite
 
 # Focus terminal
-bindsym Mod3+Return [title="^(?!nvim).*"] [class="^Termite$"] focus
+bindsym Mod3+Return [title="^(?!nvim).*" class="^Termite$"] focus
 
 # Print -> scrot - clipboard 
 bindsym --release Print exec scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
