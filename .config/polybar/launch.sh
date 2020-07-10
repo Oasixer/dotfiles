@@ -13,6 +13,12 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bar1 and bar2
 # polybar -c ~/.config/polybar/config.ini main &
 
+if hostnamectl | grep -q 'laptop'; then
+    CONFIG=config_laptop.ini
+else
+    CONFIG=config_desktop.ini
+fi
+
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --reload main -c ~/.config/polybar/config.ini &
+    MONITOR=$m polybar --reload main -c ~/.config/polybar/$CONFIG &
 done
