@@ -29,15 +29,12 @@ alias rl="source ~/.zshrc"
 alias brm="cat /sys/class/backlight/intel_backlight/max_brightness"
 alias br="/sys/class/backlight/intel_backlight"
 
-#alias steal="yaourt -S"
 
-#alias connect="nmcli device wifi connect"
-
-#alias info="info --vi-keys"
-
-# Enable colors and change prompt:
-#autoload -U colors && colors
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# Path aliases
+setopt AUTO_CD
+hash -d backr=~/proj/backr
+hash -d scraper=~/proj/backr/Twitter_API_Container
+hash -d streamer=~/proj/backr/Tweet-Streamer
 
 # History in cache directory:
 HISTFILE="$HOME/.zsh_history"
