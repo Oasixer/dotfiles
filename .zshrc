@@ -35,6 +35,9 @@ setopt AUTO_CD
 hash -d backr=~/proj/backr
 hash -d scraper=~/proj/backr/Twitter_API_Container
 hash -d streamer=~/proj/backr/Tweet-Streamer
+hash -d nvim=~/.config/nvim
+hash -d notes=~/Documents/notes
+
 
 # History in cache directory:
 HISTFILE="$HOME/.zsh_history"
