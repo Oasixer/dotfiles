@@ -68,3 +68,9 @@ xinput enable <device>
 
 Wacom Pen and multitouch sensor Finger touch	id=15
 
+# Wireless device name changed after system update
+
+* ie. output of $ ip link has changed.
+* to fix, run
+
+ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
