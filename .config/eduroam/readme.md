@@ -18,6 +18,7 @@ cp ./eduroam/wpa_supplicant_eduroam.conf /etc
 * Copy the output of the following to get your wifi interface name:
 
 ip route | grep '^default' | awk '{print $5}' | head -n1
+ip link | grep '^default' | awk '{print $5}' | head -n1
 
 * Edit /etc/wpa_supplicant_eduroam.conf
     * replace interface wlan0 with the copied inteface name
