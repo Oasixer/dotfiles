@@ -43,7 +43,10 @@ FallbackNTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.p
         * systemctl enable systemd-timesyncd.service
         * systemctl start systemd-timesyncd.service
 
-## Enable and disable devices ie. trackpad, touchscreen
+# Get keycodes for X server from cmdline keypresses
+xev
+
+# Enable and disable devices ie. trackpad, touchscreen
 
 * List devices
 
@@ -68,6 +71,10 @@ xinput enable <device>
 
 Wacom Pen and multitouch sensor Finger touch	id=15
 
-# Get keycodes for X server from cmdline keypresses
-xev
 
+# Wireless device name changed after system update
+
+* ie. output of $ ip link has changed.
+* to fix, run
+
+ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
