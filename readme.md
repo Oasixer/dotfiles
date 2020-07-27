@@ -68,3 +68,6 @@ xinput enable <device>
 
 Wacom Pen and multitouch sensor Finger touch	id=15
 
+# Get keycodes for X server from cmdline keypresses
+xev
+
