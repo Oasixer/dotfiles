@@ -32,11 +32,16 @@ alias br="/sys/class/backlight/intel_backlight"
 
 # Path aliases
 setopt AUTO_CD
+hash -d config=~/.config
+hash -d polybar=~/.config/polybar
 hash -d backr=~/proj/backr
 hash -d scraper=~/proj/backr/Twitter_API_Container
 hash -d streamer=~/proj/backr/Tweet-Streamer
 hash -d nvim=~/.config/nvim
 hash -d notes=~/Documents/notes
+hash -d proj=~/proj
+hash -d rocketry=~/proj/rocketry
+hash -d vent=~/proj/rocketry/cansw_vent
 
 
 # History in cache directory:
