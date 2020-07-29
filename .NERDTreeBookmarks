@@ -1,0 +1,13 @@
+notes ~/Documents/notes
+polybar ~/.config/polybar
+rocketry ~/proj/rocketry
+scraper ~/proj/backr/Twitter_API_Container
+streamer ~/proj/backr/Tweet-Streamer
+~ ~/
+~/.config ~/.config
+~/.config/i3/config ~/.config/i3/config
+~/proj ~/proj
+~/proj/rocketry/cansw_vent ~/proj/rocketry/cansw_vent
+nvim ~/.config/nvim
+
+~/.config/i3-layout-manager/ ~/.config/i3-layout-manager
