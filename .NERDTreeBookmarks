@@ -10,4 +10,5 @@ streamer ~/proj/backr/Tweet-Streamer
 ~/.config/i3/config ~/.config/i3/config
 ~/proj ~/proj
 ~/proj/rocketry/cansw_vent ~/proj/rocketry/cansw_vent
+zsh_history ~/.zsh_history
 

@@ -7,3 +7,6 @@
 [submodule "i3-layout-manager"]
 	path = .config/i3-layout-manager
 	url = git@github.com:Oasixer/i3-layout-manager.git
+[submodule ".config/zsh-autocomplete"]
+	path = .config/zsh-autocomplete
+	url = git@github.com:marlonrichert/zsh-autocomplete.git
