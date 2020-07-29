@@ -29,3 +29,5 @@
 
 # i3 layout manager (submodule)
 !i3-layout-manager/
+
+!zsh-autocomplete/
