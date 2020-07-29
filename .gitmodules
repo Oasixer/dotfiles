@@ -5,5 +5,5 @@
 	path = .config/nvim
 	url = git@github.com:Oasixer/nvim.git
 [submodule "i3-layout-manager"]
-	path = i3-layout-manager
+	path = .config/i3-layout-manager
 	url = git@github.com:Oasixer/i3-layout-manager.git
