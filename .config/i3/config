@@ -30,8 +30,6 @@ for_window [class="^.*"] border pixel 3
 gaps inner 10
 gaps outer 10
 
-
-
 # Autostart
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -133,8 +131,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 workspace $ws1 output primary
-workspace $ws2 output primary
-workspace $ws3 output HDMI-3 primary
+workspace $ws2 output HDMI-3 primary
+workspace $ws3 output primary
 workspace $ws4 output HDMI-3 primary
 
 # switch to workspace
@@ -251,7 +249,3 @@ bindsym --release Shift+Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f
 
 # Ctrl + Shift Print -> scrot - file
 bindsym --release Ctrl+Shift+Print exec scrot -s '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
-
-
-
-
