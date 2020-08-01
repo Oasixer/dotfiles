@@ -2,7 +2,7 @@
 
 
 ## Add this to your wm startup file.
-export DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
+DEFAULT_NETWORK_INTERFACE=$(ip link | grep '^default' | awk '{print $5}' | head -n1)
 
 # Terminate already running bar instances
 killall -q polybar

@@ -16,7 +16,7 @@
 !termite/
 
 #termite-style
-!termite-style
+!termite-style/
 
 #eduroam
 !eduroam/
@@ -28,5 +28,8 @@
 !vimium/
 
 # i3 layout manager (submodule)
-!i3-layout-manager
+!i3-layout-manager/
 
+!zsh-autocomplete/
+
+# !zsh-autocomplete

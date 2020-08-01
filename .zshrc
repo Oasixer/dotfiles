@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# bindkey -M menuselect -r '^I'
 # Path to your oh-my-zsh installation.
 export ZSH="/home/k/.oh-my-zsh"
 
@@ -32,6 +32,8 @@ alias br="/sys/class/backlight/intel_backlight"
 
 # Path aliases
 setopt AUTO_CD
+hash -d config=~/.config
+hash -d polybar=~/.config/polybar
 hash -d backr=~/proj/backr
 hash -d scraper=~/proj/backr/Twitter_API_Container
 hash -d streamer=~/proj/backr/Tweet-Streamer
@@ -42,7 +44,7 @@ hash -d notes=~/Documents/notes
 hash -d proj=~/proj
 hash -d rocketry=~/proj/rocketry
 hash -d minerva=~/proj/rocketry/minerva
-
+hash -d vent=~/proj/rocketry/cansw_vent
 
 # History in cache directory:
 HISTFILE="$HOME/.zsh_history"
@@ -63,17 +65,24 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+# _comp_options+=(globdots)		# Include hidden files.
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
 
 #plugins=(git zsh-syntax-highlighting)
-plugins=(git zsh-syntax-highlighting vi-mode)
+# plugins=(git zsh-syntax-highlighting vi-mode zsh-autosuggestions)
+# plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+source ~/.config/zsh-autocomplete/zsh-autocomplete.zsh
 
 # Turn off all beeps
 unsetopt BEEP
@@ -84,17 +93,36 @@ unsetopt LIST_BEEP
 bindkey -v
 export KEYTIMEOUT=1
 
+
+function precmd_remove_up_down_bindkey() {
+  bindkey '^[OA' up-line-or-history
+  bindkey '^[OB' down-line-or-history
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd precmd_remove_up_down_bindkey
+
 # Use vim keys in tab complete menu:
+# bindkey -M menuselect '^[[D' accept-and-hold
 bindkey -r '^I'
-bindkey '^I' list-choices
-bindkey "^[l" complete-word
-bindkey -M menuselect '^I' expand-word
+# bindkey -M menuselect -r '^I'
+
+# SHIFT TAB
+# bindkey '^[[Z' autosuggest-accept
+bindkey -M menuselect '^[[Z' _complete_word
+
+# bindkey -M menuselect '^I' menu-complete
+bindkey '^[j' menu-select
+# bindkey -M menuselect '^I' expand-word
+
+# bindkey '^I' autosuggest-accept
+# bindkey '^[j' complete-word
+# bindkey '^[j' history-beginning-search-forward
+
 bindkey -M menuselect '^[h' vi-backward-char
 bindkey -M menuselect '^[k' vi-up-line-or-history
 bindkey -M menuselect '^[l' vi-forward-char
 bindkey -M menuselect '^[j' vi-down-line-or-history
-
-# bindkey -v '^?' backward-delete-char
 
 zle-keymap-select () {
 if [ $KEYMAP = vicmd ]; then

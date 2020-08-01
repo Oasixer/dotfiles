@@ -43,7 +43,10 @@ FallbackNTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.p
         * systemctl enable systemd-timesyncd.service
         * systemctl start systemd-timesyncd.service
 
-## Enable and disable devices ie. trackpad, touchscreen
+# Get keycodes for X server from cmdline keypresses
+xev
+
+# Enable and disable devices ie. trackpad, touchscreen
 
 * List devices
 
@@ -67,6 +70,7 @@ xinput enable <device>
     * The touch screen is
 
 Wacom Pen and multitouch sensor Finger touch	id=15
+
 
 # Wireless device name changed after system update
 

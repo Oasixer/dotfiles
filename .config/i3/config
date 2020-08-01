@@ -30,8 +30,6 @@ for_window [class="^.*"] border pixel 3
 gaps inner 10
 gaps outer 10
 
-
-
 # Autostart
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -106,16 +104,18 @@ bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # focus the child container
 bindsym $mod+Shift+a focus child
+
+bindsym $mod+x exec --no-startup-id xrandr --output HDMI-3 --auto --right-of DVI-D-1
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -129,6 +129,11 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+workspace $ws1 output primary
+workspace $ws2 output HDMI-3 primary
+workspace $ws3 output primary
+workspace $ws4 output HDMI-3 primary
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -223,8 +228,9 @@ bindsym Mod3+s [class="^Slack$"] focus
 
 # Open nvim
 bindsym $mod+n exec termite -e "nvim"
+
 # Focus nvim
-bindsym Mod3+n [title="^nvim$"] focus
+bindsym Mod3+n [title="^nvim"] focus
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -243,7 +249,3 @@ bindsym --release Shift+Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f
 
 # Ctrl + Shift Print -> scrot - file
 bindsym --release Ctrl+Shift+Print exec scrot -s '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
-
-
-
-

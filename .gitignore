@@ -11,9 +11,11 @@
 !.fonts/
 
 !.gitignore
+!.gitmodules
 !.dmrc
 !.screenrc
 !.xinitrc
 !.zshrc
 !readme.md
 !.Xmodmap
+!.NERDTreeBookmarks
