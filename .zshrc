@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# bindkey -M menuselect -r '^I'
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/k/.oh-my-zsh"
 
@@ -75,13 +74,15 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
 ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
 
+source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 #plugins=(git zsh-syntax-highlighting)
 # plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
 plugins=(git zsh-syntax-highlighting vi-mode)
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Turn off all beeps
 unsetopt BEEP
