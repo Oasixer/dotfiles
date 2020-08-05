@@ -81,7 +81,7 @@ ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
 # plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
 # plugins=(git zsh-syntax-highlighting vi-mode zsh-autosuggestions)
 plugins=(git zsh-syntax-highlighting vi-mode)
-# autoload -U compinit && compinit
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -97,11 +97,12 @@ export KEYTIMEOUT=1
 
 
 # zstyle ':autocomplete:*' key-binding off
-zstyle ':autocomplete:*' config off
-# function precmd_remove_up_down_bindkey() {
-  # bindkey '^[OA' up-line-or-history
-  # bindkey '^[OB' down-line-or-history
-# }
+# zstyle ':autocomplete:*' config off
+
+function precmd_remove_up_down_bindkey() {
+  bindkey '^[OA' up-line-or-history
+  bindkey '^[OB' down-line-or-history
+}
 
 # autoload -Uz add-zsh-hook
 # add-zsh-hook precmd precmd_remove_up_down_bindkey
@@ -116,7 +117,7 @@ bindkey -r '^I'
 # bindkey '^[[Z' autosuggest-accept
 
 # bindkey -M menuselect '^I' menu-complete
-# bindkey '^[j' menu-select
+bindkey '^[j' menu-select
 # bindkey '^I' _complete_word
 # bindkey -M menuselect '^I' expand-word
 
@@ -143,6 +144,7 @@ printf "\033[6 q"
 }
 zle -N zle-line-init
 
+PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
