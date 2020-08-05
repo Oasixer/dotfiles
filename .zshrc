@@ -76,11 +76,13 @@ ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
 #plugins=(git zsh-syntax-highlighting)
 # plugins=(git zsh-syntax-highlighting vi-mode zsh-autosuggestions)
 # plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
-plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
-autoload -U compinit && compinit
+# plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
+# plugins=(git zsh-syntax-highlighting vi-mode zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting vi-mode)
+# autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
-source ~/.config/zsh-autocomplete/zsh-autocomplete.zsh
+source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Turn off all beeps
 unsetopt BEEP
@@ -92,13 +94,15 @@ bindkey -v
 export KEYTIMEOUT=1
 
 
-function precmd_remove_up_down_bindkey() {
-  bindkey '^[OA' up-line-or-history
-  bindkey '^[OB' down-line-or-history
-}
+# zstyle ':autocomplete:*' key-binding off
+zstyle ':autocomplete:*' config off
+# function precmd_remove_up_down_bindkey() {
+  # bindkey '^[OA' up-line-or-history
+  # bindkey '^[OB' down-line-or-history
+# }
 
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd precmd_remove_up_down_bindkey
+# autoload -Uz add-zsh-hook
+# add-zsh-hook precmd precmd_remove_up_down_bindkey
 
 # Use vim keys in tab complete menu:
 # bindkey -M menuselect '^[[D' accept-and-hold
@@ -106,11 +110,12 @@ bindkey -r '^I'
 # bindkey -M menuselect -r '^I'
 
 # SHIFT TAB
+# bindkey -M menuselect '^[[Z' _complete_word
 # bindkey '^[[Z' autosuggest-accept
-bindkey -M menuselect '^[[Z' _complete_word
 
 # bindkey -M menuselect '^I' menu-complete
-bindkey '^[j' menu-select
+# bindkey '^[j' menu-select
+# bindkey '^I' _complete_word
 # bindkey -M menuselect '^I' expand-word
 
 # bindkey '^I' autosuggest-accept
