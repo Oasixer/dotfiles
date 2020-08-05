@@ -76,10 +76,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
 ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
 
 #plugins=(git zsh-syntax-highlighting)
-# plugins=(git zsh-syntax-highlighting vi-mode zsh-autosuggestions)
 # plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
-# plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
-# plugins=(git zsh-syntax-highlighting vi-mode zsh-autosuggestions)
 plugins=(git zsh-syntax-highlighting vi-mode)
 autoload -U compinit && compinit
 
