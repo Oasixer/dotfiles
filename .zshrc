@@ -38,11 +38,13 @@ hash -d backr=~/proj/backr
 hash -d scraper=~/proj/backr/Twitter_API_Container
 hash -d streamer=~/proj/backr/Tweet-Streamer
 hash -d nvim=~/.config/nvim
+hash -d polybar=~/.config/polybar
+hash -d i3=~/.config/i3
 hash -d notes=~/Documents/notes
 hash -d proj=~/proj
 hash -d rocketry=~/proj/rocketry
+hash -d minerva=~/proj/rocketry/minerva
 hash -d vent=~/proj/rocketry/cansw_vent
-
 
 # History in cache directory:
 HISTFILE="$HOME/.zsh_history"

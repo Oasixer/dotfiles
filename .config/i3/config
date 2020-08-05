@@ -113,7 +113,7 @@ bindsym $mod+s layout toggle split
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 bindsym $mod+x exec --no-startup-id xrandr --output HDMI-3 --auto --right-of DVI-D-1
 
