@@ -28,6 +28,15 @@ alias rl="source ~/.zshrc"
 alias brm="cat /sys/class/backlight/intel_backlight/max_brightness"
 alias br="/sys/class/backlight/intel_backlight"
 
+# Turn off all beeps
+unsetopt BEEP
+# Turn off autocomplete beeps
+unsetopt LIST_BEEP
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
 
 # Path aliases
 setopt AUTO_CD
@@ -72,61 +81,90 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
-ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
+# ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
+    forward-word
+    emacs-forward-word
+    vi-forward-word
+    vi-forward-word-end
+    vi-forward-blank-word
+    vi-forward-blank-word-end
+    vi-find-next-char
+    vi-find-next-char-skip
+    )
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
+    end-of-line
+    menu-select
+    .menu-select
+    complete-word
+    expand-word
+    _complete_word
+    vi-down-line-or-history
+    down-line-or-menu-select
+    down-line
+    accept-line
+    history-search-forward
+    history-search-backward
+    history-beginning-search-forward
+    history-beginning-search-backward
+    history-substring-search-up
+    history-substring-search-down
+    up-line-or-beginning-search
+    down-line-or-beginning-search
+    up-line-or-history
+    down-line-or-history
+    accept-line
+    copy-earlier-word
+    down-line-or-history)
 
+zstyle ':autocomplete:*' key-binding off
+# zstyle ':autocomplete:*' fuzzy-search off
+zstyle ':autocomplete:list-choices:*' max-lines 100%
+# zstyle ':autocomplete:*' config off
+# zstyle ':autocomplete:tab:*' completion select
+
+source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#plugins=(git zsh-syntax-highlighting)
-# plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
-plugins=(git zsh-syntax-highlighting vi-mode)
-# autoload -U compinit && compinit
+plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-# source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# Turn off all beeps
-unsetopt BEEP
-# Turn off autocomplete beeps
-unsetopt LIST_BEEP
-
-# vi mode
-bindkey -v
-export KEYTIMEOUT=1
-
-
-# zstyle ':autocomplete:*' key-binding off
-# zstyle ':autocomplete:*' config off
-
-function precmd_remove_up_down_bindkey() {
-  bindkey '^[OA' up-line-or-history
-  bindkey '^[OB' down-line-or-history
-}
-
-# autoload -Uz add-zsh-hook
-# add-zsh-hook precmd precmd_remove_up_down_bindkey
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(menu-select)
 
 # Use vim keys in tab complete menu:
 # bindkey -M menuselect '^[[D' accept-and-hold
-bindkey -r '^I'
+
+# bindkey -r '^I'
 # bindkey -M menuselect -r '^I'
 
-# SHIFT TAB
-# bindkey -M menuselect '^[[Z' _complete_word
-# bindkey '^[[Z' autosuggest-accept
+bindkey '^I' complete-word
+# bindkey -M menuselect '^I' complete-word
+bindkey -M menuselect '^I' accept-line
+bindkey -M menuselect '^[' vi-cmd-mode
 
-# bindkey -M menuselect '^I' menu-complete
-bindkey '^[j' menu-select
-# bindkey '^I' _complete_word
-# bindkey -M menuselect '^I' expand-word
-
-# bindkey '^I' autosuggest-accept
-# bindkey '^[j' complete-word
-# bindkey '^[j' history-beginning-search-forward
+bindkey '^[l' autosuggest-accept
 
 bindkey -M menuselect '^[h' vi-backward-char
+bindkey -M menuselect '^[j' vi-down-line-or-history
 bindkey -M menuselect '^[k' vi-up-line-or-history
 bindkey -M menuselect '^[l' vi-forward-char
-bindkey -M menuselect '^[j' vi-down-line-or-history
+
+bindkey '^[k' up-line-or-history-search
+
+menu-select-and-history-down() {
+  # fzf-history-widget
+  zle menu-select
+  zle down-line-or-history-search
+  # zle accept-line
+}
+zle     -N     menu-select-and-history-down
+bindkey '^[j' menu-select-and-history-down
+
+# bindkey '^K' up-line-or-history
+
+# bindkey -M vicmd '^[j' vi-down-line-or-history
 
 zle-keymap-select () {
 if [ $KEYMAP = vicmd ]; then
@@ -155,3 +193,5 @@ if [ -f '/home/k/programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k/prog
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/k/programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k/programs/google-cloud-sdk/completion.zsh.inc'; fi
+
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(menu-select)

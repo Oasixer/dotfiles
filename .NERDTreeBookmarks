@@ -11,7 +11,7 @@ bab--nvim ~/.config/nvim
 bab--polybar ~/.config/polybar
 caa-notes ~/Documents/notes
 cba--git ~/Documents/notes/git.md
-cba--lang ~/Documents/notes/lang
 cba--todo ~/Documents/notes/todo.wiki
 zzz-zsh_history ~/.zsh_history
 
+cba--lang ~/Documents/notes/lang

@@ -10,3 +10,6 @@
 [submodule ".config/zsh-autocomplete"]
 	path = .config/zsh-autocomplete
 	url = git@github.com:marlonrichert/zsh-autocomplete.git
+[submodule ".config/zsh-autosuggestions"]
+	path = .config/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
