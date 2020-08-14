@@ -44,7 +44,7 @@ hash -d config=~/.config
 hash -d polybar=~/.config/polybar
 hash -d backr=~/proj/backr
 hash -d scraper=~/proj/backr/Twitter_API_Container
-hash -d streamer=~/proj/backr/Tweet-Streamer
+hash -d ingest=~/proj/backr/Ingest-Server
 hash -d nvim=~/.config/nvim
 hash -d polybar=~/.config/polybar
 hash -d i3=~/.config/i3
@@ -119,15 +119,15 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
 
 zstyle ':autocomplete:*' key-binding off
 # zstyle ':autocomplete:*' fuzzy-search off
-zstyle ':autocomplete:list-choices:*' max-lines 100%
+zstyle ':autocomplete:list-choices:*' max-lines 70%
 # zstyle ':autocomplete:*' config off
 # zstyle ':autocomplete:tab:*' completion select
 
-source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-plugins=(git zsh-syntax-highlighting vi-mode zsh-completions zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting vi-mode zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,12 +151,53 @@ bindkey -M menuselect '^[j' vi-down-line-or-history
 bindkey -M menuselect '^[k' vi-up-line-or-history
 bindkey -M menuselect '^[l' vi-forward-char
 
+bindkey '^@' list-expand
+
 bindkey '^[k' up-line-or-history-search
+
+# Wrap vi yank/put widgets with xclip so that we use system clipboard in zsh
+function x11-clip-wrap-widgets() {
+    # Note: Assume we are the first wrapper and that we only wrap native widgets
+    # See zsh-autosuggestions.zsh for a more generic and more robust wrapper
+    local copy_or_paste=$1
+    shift
+
+    for widget in $@; do
+        # Ugh, zsh doesn't have closures
+        if [[ $copy_or_paste == "copy" ]]; then
+            eval "
+            function _x11-clip-wrapped-$widget() {
+                zle .$widget
+                xclip -in -selection clipboard <<<\$CUTBUFFER
+            }
+            "
+        else
+            eval "
+            function _x11-clip-wrapped-$widget() {
+                CUTBUFFER=\$(xclip -out -selection clipboard)
+                zle .$widget
+            }
+            "
+        fi
+
+        zle -N $widget _x11-clip-wrapped-$widget
+    done
+}
+
+local copy_widgets=(
+    vi-yank vi-yank-eol vi-delete vi-backward-kill-word vi-change-whole-line
+)
+local paste_widgets=(
+    vi-put-{before,after}
+)
+
+x11-clip-wrap-widgets copy $copy_widgets
+x11-clip-wrap-widgets paste  $paste_widgets
 
 menu-select-and-history-down() {
   # fzf-history-widget
   zle menu-select
-  zle down-line-or-history-search
+  # zle down-line-or-history-search
   # zle accept-line
 }
 zle     -N     menu-select-and-history-down
