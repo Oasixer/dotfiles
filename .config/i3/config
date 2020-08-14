@@ -226,6 +226,9 @@ bindsym Mod3+d [class="^discord$"] focus
 # Focus slack
 bindsym Mod3+s [class="^Slack$"] focus
 
+# Focus spotify
+bindsym Mod3+Shift+s [class="^Spotify$"] focus
+
 # Open nvim
 bindsym $mod+n exec termite -e "nvim"
 
