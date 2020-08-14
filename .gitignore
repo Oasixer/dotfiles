@@ -12,6 +12,7 @@
 
 !.gitignore
 !.gitmodules
+!.gitconfig
 !.dmrc
 !.screenrc
 !.xinitrc
