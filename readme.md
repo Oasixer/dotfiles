@@ -28,6 +28,9 @@ xrandr --output DVI-I-2-2 --mode 1920x1080 --right-of eDP1 --output DVI-I-1-1 --
 ### enable dual monitor, disable laptop
 xrandr --output eDP1 --off --output DVI-I-2-2 --mode 1920x1080 --primary --output DVI-I-1-1 --mode 1920x1080 --right-of DVI-I-2-2
 
+### disable second mon
+xrandr --output HDMI-3 --off
+
 
 ## Date & Time
 * Issues with dual boot resetting time, see here https://wiki.archlinux.org/index.php/System_time#UTC_in_Windows
