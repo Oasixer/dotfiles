@@ -127,7 +127,7 @@ zstyle ':autocomplete:list-choices:*' max-lines 70%
 source ~/.config/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-plugins=(git zsh-syntax-highlighting vi-mode zsh-completions)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -235,4 +235,4 @@ if [ -f '/home/k/programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k/prog
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/k/programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k/programs/google-cloud-sdk/completion.zsh.inc'; fi
 
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(menu-select)
+source ~/.config/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
