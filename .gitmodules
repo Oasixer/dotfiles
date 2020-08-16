@@ -8,8 +8,8 @@
 	path = .config/i3-layout-manager
 	url = git@github.com:Oasixer/i3-layout-manager.git
 [submodule ".config/zsh-autocomplete"]
-	path = .config/zsh-autocomplete
+	path = .config/zsh-plugins/zsh-autocomplete
 	url = git@github.com:marlonrichert/zsh-autocomplete.git
 [submodule ".config/zsh-autosuggestions"]
-	path = .config/zsh-autosuggestions
+	path = .config/zsh-plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions

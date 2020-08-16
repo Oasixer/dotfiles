@@ -123,8 +123,8 @@ zstyle ':autocomplete:list-choices:*' max-lines 70%
 # zstyle ':autocomplete:*' config off
 # zstyle ':autocomplete:tab:*' completion select
 
-# source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source ~/.config/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 plugins=(git zsh-syntax-highlighting vi-mode zsh-completions)
