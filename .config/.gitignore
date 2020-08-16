@@ -30,4 +30,6 @@
 # i3 layout manager (submodule)
 !i3-layout-manager/
 
-!zsh-plugins/
+!zsh-plugins/zsh-autocomplete/
+!zsh-plugins/zsh-autosuggestions/
+!zsh-plugins/zsh-syntax-highlighting/
