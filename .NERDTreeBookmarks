@@ -1,6 +1,8 @@
 aaa-proj ~/proj
 aba--backr ~/proj/backr
-abc---ingest-server ~/proj/backr/Ingest-Server
+abb---backrapi ~/proj/backr/backrapi
+abb---frontend_v2 ~/proj/backr/frontend_v2
+abb---ingest-server ~/proj/backr/Ingest-Server
 aca--rocketry ~/proj/rocketry
 acb---cansw_vent ~/proj/rocketry/cansw_vent
 acb---minerva ~/proj/rocketry/minerva
