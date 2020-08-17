@@ -155,7 +155,7 @@ bindkey -M menuselect '^[l' vi-forward-char
 
 bindkey '^@' list-expand
 
-# bindkey '^[k' up-line-or-history-search
+
 
 # Wrap vi yank/put widgets with xclip so that we use system clipboard in zsh
 function x11-clip-wrap-widgets() {
@@ -238,3 +238,5 @@ if [ -f '/home/k/programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k/prog
 if [ -f '/home/k/programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k/programs/google-cloud-sdk/completion.zsh.inc'; fi
 
 source ~/.config/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+bindkey '^[k' up-line-or-history-search
