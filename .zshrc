@@ -155,7 +155,7 @@ bindkey -M menuselect '^[l' vi-forward-char
 
 bindkey '^@' list-expand
 
-bindkey '^[k' up-line-or-history-search
+# bindkey '^[k' up-line-or-history-search
 
 # Wrap vi yank/put widgets with xclip so that we use system clipboard in zsh
 function x11-clip-wrap-widgets() {
