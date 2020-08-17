@@ -41,15 +41,17 @@ export KEYTIMEOUT=1
 # Path aliases
 setopt AUTO_CD
 hash -d config=~/.config
+hash -d zplugins=~/.config/zsh-plugins
 hash -d polybar=~/.config/polybar
-hash -d backr=~/proj/backr
-hash -d scraper=~/proj/backr/Twitter_API_Container
-hash -d ingest=~/proj/backr/Ingest-Server
 hash -d nvim=~/.config/nvim
 hash -d polybar=~/.config/polybar
 hash -d i3=~/.config/i3
 hash -d notes=~/Documents/notes
 hash -d proj=~/proj
+hash -d backr=~/proj/backr
+hash -d scraper=~/proj/backr/Twitter_API_Container
+hash -d ingest=~/proj/backr/Ingest-Server
+hash -d backrapi=~/proj/backr/backrapi
 hash -d rocketry=~/proj/rocketry
 hash -d minerva=~/proj/rocketry/minerva
 hash -d vent=~/proj/rocketry/cansw_vent
