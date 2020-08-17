@@ -144,7 +144,7 @@ bindkey '^I' complete-word
 bindkey -M menuselect '^I' accept-line
 bindkey -M menuselect '^[' vi-cmd-mode
 
-bindkey '^[l' autosuggest-accept
+# bindkey '^[l' autosuggest-accept
 
 bindkey -M menuselect '^[h' vi-backward-char
 bindkey -M menuselect '^[j' vi-down-line-or-history
