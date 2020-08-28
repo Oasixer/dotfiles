@@ -55,6 +55,7 @@ hash -d backrapi=~/proj/backr/backrapi
 hash -d rocketry=~/proj/rocketry
 hash -d minerva=~/proj/rocketry/minerva
 hash -d vent=~/proj/rocketry/cansw_vent
+hash -d website=~/proj/website-sapper
 
 # History in cache directory:
 HISTFILE="$HOME/.zsh_history"
