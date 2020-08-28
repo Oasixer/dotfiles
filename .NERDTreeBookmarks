@@ -6,6 +6,7 @@ abb---ingest-server ~/proj/backr/Ingest-Server
 aca--rocketry ~/proj/rocketry
 acb---cansw_vent ~/proj/rocketry/cansw_vent
 acb---minerva ~/proj/rocketry/minerva
+ada--website ~/proj/website-sapper
 baa-config ~/.config
 bab--i3 ~/.config/i3
 bab--i3-layout-manager ~/.config/i3-layout-manager
