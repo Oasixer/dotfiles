@@ -1,5 +1,6 @@
-# Whitelist pattern - ignore all subdirectories first
+# Whitelist pattern - ignore all subdirectories and files first
 */
+/*
 
 # Now whitelist specific subdirectories
 
@@ -34,3 +35,19 @@
 !zsh-plugins/zsh-autosuggestions/
 !zsh-plugins/zsh-syntax-highlighting/
 !zsh-plugins/zsh-completions
+
+
+
+
+
+# Whitelist specific files
+!.gitignore
+!.xmodmap
+!.QtProject.conf
+!.mimeapps.list
+!pavucontrol.ini
+!picom.conf
+!user-dirs.dirs
+!user-dirs.locale
+
+
