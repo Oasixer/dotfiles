@@ -2,4 +2,6 @@
 text/plain=nvim.desktop;
 
 [Default Applications]
+x-scheme-handler/http=google-chrome.desktop;
+x-scheme-handler/https=google-chrome.desktop;
 x-scheme-handler/webcal=google-chrome.desktop
