@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TMPDIR=/tmp
 # Path to your oh-my-zsh installation.
-export ZSH="/home/k/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="birame"
 #ZSH_THEME=""
@@ -75,76 +76,30 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-# Basic auto/tab complete:
-# autoload -U compinit
-# zstyle ':completion:*' menu select
-# zmodload zsh/complist
-# compinit
-# _comp_options+=(globdots)		# Include hidden files.
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
-# ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
-    forward-word
-    emacs-forward-word
-    vi-forward-word
-    vi-forward-word-end
-    vi-forward-blank-word
-    vi-forward-blank-word-end
-    vi-find-next-char
-    vi-find-next-char-skip
-    )
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
-    end-of-line
-    menu-select
-    .menu-select
-    complete-word
-    expand-word
-    _complete_word
-    vi-down-line-or-history
-    down-line-or-menu-select
-    down-line
-    accept-line
-    history-search-forward
-    history-search-backward
-    history-beginning-search-forward
-    history-beginning-search-backward
-    history-substring-search-up
-    history-substring-search-down
-    up-line-or-beginning-search
-    down-line-or-beginning-search
-    up-line-or-history
-    down-line-or-history
-    accept-line
-    copy-earlier-word
-    down-line-or-history)
-
-zstyle ':autocomplete:*' key-binding off
-# zstyle ':autocomplete:*' fuzzy-search off
-zstyle ':autocomplete:list-choices:*' max-lines 70%
-# zstyle ':autocomplete:*' config off
-# zstyle ':autocomplete:tab:*' completion select
-
-# source ~/.config/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-plugins=(git vi-mode)
+plugins=(git vi-mode fzf docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(menu-select)
 
+source ~/.config/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# zstyle ':autocomplete:tab:*' widget-style menu-select
+
+bindkey -M viins '^[k' fzf-history-widget
+bindkey -M vicmd '^[j' menu-select
+bindkey -M viins '^[j' menu-select
+bindkey -M menuselect $key[Tab] accept-line
 # Use vim keys in tab complete menu:
 # bindkey -M menuselect '^[[D' accept-and-hold
 
 # bindkey -r '^I'
 # bindkey -M menuselect -r '^I'
 
-bindkey '^I' complete-word
+# bindkey '^I' complete-word
 # bindkey -M menuselect '^I' complete-word
-bindkey -M menuselect '^I' accept-line
+# bindkey -M menuselect '^I' accept-line
 bindkey -M menuselect '^[' vi-cmd-mode
 
 # bindkey '^[l' autosuggest-accept
@@ -154,7 +109,7 @@ bindkey -M menuselect '^[j' vi-down-line-or-history
 bindkey -M menuselect '^[k' vi-up-line-or-history
 bindkey -M menuselect '^[l' vi-forward-char
 
-bindkey '^@' list-expand
+# bindkey '^@' list-expand
 
 
 
@@ -188,7 +143,7 @@ function x11-clip-wrap-widgets() {
 }
 
 local copy_widgets=(
-    vi-yank vi-yank-eol vi-delete vi-backward-kill-word vi-change-whole-line
+    vi-yank vi-yank-eol
 )
 local paste_widgets=(
     vi-put-{before,after}
@@ -197,14 +152,14 @@ local paste_widgets=(
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
 
-menu-select-and-history-down() {
+# menu-select-and-history-down() {
   # fzf-history-widget
-  zle menu-select
+  # zle menu-select
   # zle down-line-or-history-search
   # zle accept-line
-}
-zle     -N     menu-select-and-history-down
-bindkey '^[j' menu-select-and-history-down
+# }
+# zle     -N     menu-select-and-history-down
+# bindkey '^[j' menu-select-and-history-down
 
 # bindkey '^K' up-line-or-history
 
@@ -239,5 +194,3 @@ if [ -f '/home/k/programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k/prog
 if [ -f '/home/k/programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k/programs/google-cloud-sdk/completion.zsh.inc'; fi
 
 source ~/.config/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-bindkey '^[k' up-line-or-history-search
