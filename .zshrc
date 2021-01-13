@@ -1,13 +1,19 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export TMPDIR=/tmp
-# Path to your oh-my-zsh installation.
+export PATH=$HOME/bin:/usr/local/bin:/snap/bin:$PATH
+export PATH=$HOME/.deno/bin:$PATH
+PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/k/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/k/perl5"; export PERL_MM_OPT;
+path+=("$HOME/programs")
+export path
+export TMPDIR="/tmp"
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="birame"
-#ZSH_THEME=""
 
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 export EDITOR="nvim"
 export BROWSER="google-chrome-stable"
@@ -42,6 +48,8 @@ export KEYTIMEOUT=1
 # Path aliases
 setopt AUTO_CD
 hash -d config=~/.config
+hash -d programs=~/programs
+hash -d temp=~/temp
 hash -d zplugins=~/.config/zsh-plugins
 hash -d polybar=~/.config/polybar
 hash -d nvim=~/.config/nvim
@@ -49,6 +57,8 @@ hash -d polybar=~/.config/polybar
 hash -d i3=~/.config/i3
 hash -d notes=~/Documents/notes
 hash -d proj=~/proj
+hash -d personifi=~/proj/personifi
+hash -d pbackend=~/proj/personifi/gucci-backend
 hash -d backr=~/proj/backr
 hash -d scraper=~/proj/backr/Twitter_API_Container
 hash -d ingest=~/proj/backr/Ingest-Server
@@ -78,19 +88,25 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-plugins=(git vi-mode fzf docker docker-compose)
+plugins=(git vi-mode fzf docker docker-compose zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
 
+# zstyle ':completion:*' extra-verbose true
 source ~/.config/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
 # zstyle ':autocomplete:tab:*' widget-style menu-select
+# zstyle ':completion:list-expand:*' extra-verbose yes
+zstyle ':completion:*' extra-verbose yes
 
+
+bindkey -M viins '^[[A' up-line-or-search
 bindkey -M viins '^[k' fzf-history-widget
+bindkey -M vicmd '^[k' fzf-history-widget
 bindkey -M vicmd '^[j' menu-select
 bindkey -M viins '^[j' menu-select
 bindkey -M menuselect $key[Tab] accept-line
+bindkey $key[ControlSpace] list-expand
 # Use vim keys in tab complete menu:
 # bindkey -M menuselect '^[[D' accept-and-hold
 
@@ -110,6 +126,9 @@ bindkey -M menuselect '^[k' vi-up-line-or-history
 bindkey -M menuselect '^[l' vi-forward-char
 
 # bindkey '^@' list-expand
+
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 
 
@@ -179,12 +198,6 @@ printf "\033[6 q"
 }
 zle -N zle-line-init
 
-PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/k/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/k/perl5"; export PERL_MM_OPT;
 GOOGLE_APPLICATION_CREDENTIALS="/home/k/backr-dev-cred.json" 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -194,3 +207,4 @@ if [ -f '/home/k/programs/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k/prog
 if [ -f '/home/k/programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k/programs/google-cloud-sdk/completion.zsh.inc'; fi
 
 source ~/.config/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"

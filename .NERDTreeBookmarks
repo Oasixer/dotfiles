@@ -1,6 +1,12 @@
 aaa-proj ~/proj
-aba--backr ~/proj/backr
-aca--rocketry ~/proj/rocketry
+aba--personifi ~/proj/personifi
+abb---pbackend ~/proj/personifi/gucci-backend
+abc----models ~/proj/personifi/gucci-backend/application/data/models.py
+abd---pshopping ~/proj/personifi/dior-shopping-backend
+abe----models ~/proj/personifi/dior-shopping-backend/application/data/models.py
+aca--backr ~/proj/backr
+acb---ingest-server ~/proj/backr/Ingest-Server
+ada--rocketry ~/proj/rocketry
 baa-config ~/.config
 bab--i3 ~/.config/i3
 bab--i3-layout-manager ~/.config/i3-layout-manager
@@ -10,12 +16,13 @@ caa-notes ~/Documents/notes
 cba--git ~/Documents/notes/git.md
 cba--lang ~/Documents/notes/lang
 cba--todo ~/Documents/notes/todo.wiki
+zzz-bookmarks ~/.NERDTreeBookmarks
+zzz-Xmodmap ~/.Xmodmap
 zzz-zsh_history ~/.zsh_history
 zzz-zshrc ~/.zshrc
 
 abb---backrapi ~/proj/backr/backrapi
 abb---frontend_v2 ~/proj/backr/frontend_v2
-abb---ingest-server ~/proj/backr/Ingest-Server
 acb---cansw_vent ~/proj/rocketry/cansw_vent
 acb---minerva ~/proj/rocketry/minerva
 ada--website ~/proj/website-sapper
