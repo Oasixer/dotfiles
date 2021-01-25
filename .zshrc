@@ -1,12 +1,12 @@
-# If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/snap/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
-PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/k/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/k/perl5"; export PERL_MM_OPT;
-path+=("$HOME/programs")
+export GOPATH=$HOME/work
+PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
+path+=("$HOME/programs", "$HOME/.local/bin", "/usr/local/go/bin", "$GOPATH/bin")
 export path
 export TMPDIR="/tmp"
 export ZSH=$HOME/.oh-my-zsh
@@ -20,8 +20,8 @@ export BROWSER="google-chrome-stable"
 
 export term="xterm-256color"
 
-alias ll="ls -lh"
-alias la="ls -lah"
+# alias ll="ls -lh"
+# alias la="ls -lah"
 
 #alias up="cd .."
 #alias up2="cd ..; cd .."
@@ -34,7 +34,20 @@ alias rl="source ~/.zshrc"
 #max brightness
 alias brm="cat /sys/class/backlight/intel_backlight/max_brightness"
 alias br="/sys/class/backlight/intel_backlight"
+alias startss="cd ~programs/hikkaAVStream && ./havs.sh"
+alias vact="source venv/bin/activate"
+alias vinst="pip install -r requirements.txt"
+alias gettoken='kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep "eks-admin" | awk '"'"'{print $1}'"'"') | tail -n 1 | sed -n "s/.* \([^[:space:]]*\)$/\1/p" | xclip -selection clipboard'
+alias qa-ctx='aws eks --region us-east-2 update-kubeconfig --name personifiai'
+alias prod-ctx='aws eks --region us-east-2 update-kubeconfig --name personifiai-production'
 
+alias qa-dash='aws eks --region us-east-2 update-kubeconfig --name personifiai && kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep "eks-admin" | awk '"'"'{print $1}'"'"') | tail -n 1 | sed -n "s/.* \([^[:space:]]*\)$/\1/p" | xclip -selection clipboard && xdg-open localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login & kubectl proxy'
+
+alias prod-dash='aws eks --region us-east-2 update-kubeconfig --name personifiai-production && kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep "eks-admin" | awk '"'"'{print $1}'"'"') | tail -n 1 | sed -n "s/.* \([^[:space:]]*\)$/\1/p" | xclip -selection clipboard && xdg-open localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login & kubectl proxy'
+
+alias qa-dash2='aws eks --region us-east-2 update-kubeconfig --name personifiai && kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep "eks-admin" | awk '"'"'{print $1}'"'"') | tail -n 1 | sed -n "s/.* \([^[:space:]]*\)$/\1/p" | xclip -selection clipboard && xdg-open localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login'
+
+alias prod-dash2='aws eks --region us-east-2 update-kubeconfig --name personifiai-production && kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep "eks-admin" | awk '"'"'{print $1}'"'"') | tail -n 1 | sed -n "s/.* \([^[:space:]]*\)$/\1/p" | xclip -selection clipboard && xdg-open localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login'
 # Turn off all beeps
 unsetopt BEEP
 # Turn off autocomplete beeps
@@ -107,6 +120,7 @@ bindkey -M vicmd '^[j' menu-select
 bindkey -M viins '^[j' menu-select
 bindkey -M menuselect $key[Tab] accept-line
 bindkey $key[ControlSpace] list-expand
+
 # Use vim keys in tab complete menu:
 # bindkey -M menuselect '^[[D' accept-and-hold
 
@@ -208,3 +222,4 @@ if [ -f '/home/k/programs/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/
 
 source ~/.config/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)

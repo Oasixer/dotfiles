@@ -20,6 +20,7 @@ zzz-bookmarks ~/.NERDTreeBookmarks
 zzz-Xmodmap ~/.Xmodmap
 zzz-zsh_history ~/.zsh_history
 zzz-zshrc ~/.zshrc
+aba--pdoc ~/proj/personifi/doc.md
 
 abb---backrapi ~/proj/backr/backrapi
 abb---frontend_v2 ~/proj/backr/frontend_v2
