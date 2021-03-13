@@ -12,8 +12,8 @@
 	branch = master
 [submodule ".config/zsh-plugins/zsh-autocomplete"]
 	path = .config/zsh-plugins/zsh-autocomplete
-	url = git@github.com:marlonrichert/zsh-autocomplete.git
-	branch = master
+	url = https://github.com/marlonrichert/zsh-autocomplete.git
+	branch = main
 [submodule ".config/zsh-plugins/zsh-autosuggestions"]
 	path = .config/zsh-plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions

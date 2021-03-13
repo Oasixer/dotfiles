@@ -1,9 +1,9 @@
 aaa-proj ~/proj
+aba--pdoc ~/proj/personifi/doc.md
 aba--personifi ~/proj/personifi
-abb---pbackend ~/proj/personifi/gucci-backend
-abc----models ~/proj/personifi/gucci-backend/application/data/models.py
-abd---pshopping ~/proj/personifi/dior-shopping-backend
-abe----models ~/proj/personifi/dior-shopping-backend/application/data/models.py
+abb---george ~/proj/personifi/George-ML-Classification-Service
+abb---gucci ~/proj/personifi/gucci-backend
+abd---dior ~/proj/personifi/dior-shopping-backend
 aca--backr ~/proj/backr
 acb---ingest-server ~/proj/backr/Ingest-Server
 ada--rocketry ~/proj/rocketry
@@ -16,11 +16,12 @@ caa-notes ~/Documents/notes
 cba--git ~/Documents/notes/git.md
 cba--lang ~/Documents/notes/lang
 cba--todo ~/Documents/notes/todo.wiki
+resizer ~/proj/personifi/Prada-ImageResizer
 zzz-bookmarks ~/.NERDTreeBookmarks
 zzz-Xmodmap ~/.Xmodmap
+zzz-zsh-personifi-commands ~/proj/personifi/kubectl_shortcuts/.zsh_personifi_commands
 zzz-zsh_history ~/.zsh_history
 zzz-zshrc ~/.zshrc
-aba--pdoc ~/proj/personifi/doc.md
 
 abb---backrapi ~/proj/backr/backrapi
 abb---frontend_v2 ~/proj/backr/frontend_v2
